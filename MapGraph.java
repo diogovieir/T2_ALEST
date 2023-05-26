@@ -50,11 +50,11 @@ public class MapGraph {
     
         for (int i = 0; i < rows; i++) {
             for (int j = 0; j < cols; j++) {
-                if (map[i][j] != '*') {
+                if (Character.isDigit(map[i][j])) {
                     int port = map[i][j] - '0'; // Converte o caractere para um número inteiro
     
                     // Verifica os vizinhos do porto na direção Norte, Sul, Leste e Oeste
-                    if (i - 1 >= 0 && map[i - 1][j] != '*') {
+                    if (i - 1 >= 0 && Character.isDigit(map[i - 1][j])) {
                         int neighbor = map[i - 1][j] - '0';
                         if (neighbor >= 1 && neighbor <= numPorts) {
                             addEdge(port, neighbor);
@@ -62,7 +62,7 @@ public class MapGraph {
                             throw new IllegalArgumentException("Número de porta inválido: " + neighbor);
                         }
                     }
-                    if (i + 1 < rows && map[i + 1][j] != '*') {
+                    if (i + 1 < rows && Character.isDigit(map[i + 1][j])) {
                         int neighbor = map[i + 1][j] - '0';
                         if (neighbor >= 1 && neighbor <= numPorts) {
                             addEdge(port, neighbor);
@@ -70,7 +70,7 @@ public class MapGraph {
                             throw new IllegalArgumentException("Número de porta inválido: " + neighbor);
                         }
                     }
-                    if (j - 1 >= 0 && map[i][j - 1] != '*') {
+                    if (j - 1 >= 0 && Character.isDigit(map[i][j - 1])) {
                         int neighbor = map[i][j - 1] - '0';
                         if (neighbor >= 1 && neighbor <= numPorts) {
                             addEdge(port, neighbor);
@@ -78,7 +78,7 @@ public class MapGraph {
                             throw new IllegalArgumentException("Número de porta inválido: " + neighbor);
                         }
                     }
-                    if (j + 1 < cols && map[i][j + 1] != '*') {
+                    if (j + 1 < cols && Character.isDigit(map[i][j + 1])) {
                         int neighbor = map[i][j + 1] - '0';
                         if (neighbor >= 1 && neighbor <= numPorts) {
                             addEdge(port, neighbor);
@@ -90,6 +90,7 @@ public class MapGraph {
             }
         }
     }
+    
     
     
     
