@@ -3,11 +3,11 @@ import java.util.*;
 public class FuelCalculator {
     private static final int[][] DIRECTIONS = {{-1, 0}, {1, 0}, {0, -1}, {0, 1}};
 
-    public static int calculateFuel(char[][] map, int startRow, int startCol) {
+    public static int calculateFuel(char[][] map, int startRow, int startCol) { 
         int rows = map.length;
         int cols = map[0].length;
 
-        int[][] fuel = new int[rows][cols];
+        int[][] fuel = new int[rows][cols]; 
         for (int i = 0; i < rows; i++) {
             Arrays.fill(fuel[i], Integer.MAX_VALUE);
         }
